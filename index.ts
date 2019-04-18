@@ -1,26 +1,44 @@
 
-import { Logger } from "./Logger";
 
-Logger.log("Hello", "#ff8855");
-Logger.log("World !");
+import { Log } from "./Log";
+
+Log.log("Hello", "#ff8855");
+Log.log("World !");
+const logBlue = Log.logWithColor("#5588ff");
 
 /*
-  Une base DB2 renvoit le nom de client sur 20 caractères, en majuscule :
-  [JEAN DUPONT          ]
-  On veut formater le nom pour avoir à afficher 
-  Jean Dupont
+ Modèle d'execution des programmes
 */
-const nom_DB2 = "JEAN_DUPONT          ";
-const capitalize = (s: string) => {
-  return s.charAt(0).toUpperCase() + s.slice(1)
-}
-Logger.log("Nom original :" + nom_DB2);
-const result =
-  nom_DB2
-    .trim()
-    .replace("_", " ")
-    .toLowerCase()
-    .split(" ")
-    .map(s => capitalize(s)).join(" ");
 
-Logger.log("Nom final :" + result);
+/*
+  Afficher la valeur totale d'un ensemble de produits.
+*/
+
+// import { Produit, produits, total } from "./ModelProduit00";
+// logBlue("La valeur totale est : " + total(produits));
+
+// import { Produit, produits, prixTotalEnsembleProduits } from "./ModelProduit00_clean";
+// logBlue("La valeur totale est : " + prixTotalEnsembleProduits(produits));
+
+// import { Produit, produits, prixTotalEnsembleProduits } from "./ModelProduit01";
+// logBlue("La valeur totale est : " + prixTotalEnsembleProduits(produits, "lot1-XYZ"));
+
+// import { Produit, produits, prixTotalEnsembleProduits } from "./ModelProduit01";
+// import { prixTotalEnsembleProduitsPourLots } from "./ModelProduit02";
+// logBlue("La valeur totale est : " + prixTotalEnsembleProduitsPourLots(produits, ["lot1-XYZ"]));
+
+// import { Produit, produits, prixTotalEnsembleProduits } from "./ModelProduit01";
+// import { prixTotalEnsembleProduitsPourLotsAvecDecote } from "./ModelProduit03";
+// logBlue("La valeur totale est : " + prixTotalEnsembleProduitsPourLotsAvecDecote(produits, ["lot1-XYZ"]));
+
+// import { Produit, produits, prixTotalEnsembleProduits } from "./ModelProduit01";
+// import { prixTotalEnsembleProduitsPourLotsAvecDecoteAsync } from "./ModelProduitAsync00";
+// logBlue("La valeur totale est : " + prixTotalEnsembleProduitsPourLotsAvecDecoteAsync(produits, ["lot1-XYZ"]));
+
+import { Produit, produits, prixTotalEnsembleProduits } from "./ModelProduit01";
+import { prixTotalEnsembleProduitsPourLotsAvecDecoteAsync } from "./ModelProduitAsyncGood";
+import { ProduitsService } from "./services/ProduitsService"
+
+let service = new ProduitsService();
+
+logBlue("La valeur totale est : " + prixTotalEnsembleProduitsPourLotsAvecDecoteAsync(service.getProduits(), ["lot1-XYZ"]));
