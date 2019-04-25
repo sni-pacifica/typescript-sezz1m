@@ -1,44 +1,54 @@
+import {Log} from "./src/Log";
 
+Log.log("DOJO Revisions PF", "#ff8855");
+Log.log("<em>Sortie 'console' ici ! :)</em>");
 
-import { Log } from "./Log";
-
-Log.log("Hello", "#ff8855");
-Log.log("World !");
 const logBlue = Log.logWithColor("#5588ff");
 
 /*
- Modèle d'execution des programmes
+  Appellez le code à executer ci-dessous !
 */
 
-/*
-  Afficher la valeur totale d'un ensemble de produits.
-*/
+// Etape 00
+import {produits, total} from "./src/00/ModelProduit";
 
-// import { Produit, produits, total } from "./ModelProduit00";
-// logBlue("La valeur totale est : " + total(produits));
+logBlue("La valeur totale est : " + total(produits));
 
-// import { Produit, produits, prixTotalEnsembleProduits } from "./ModelProduit00_clean";
-// logBlue("La valeur totale est : " + prixTotalEnsembleProduits(produits));
-
-// import { Produit, produits, prixTotalEnsembleProduits } from "./ModelProduit01";
+// Etape 01
+// import { Produit, produits, prixTotalEnsembleProduits } from "./src/01/ModelProduit";
 // logBlue("La valeur totale est : " + prixTotalEnsembleProduits(produits, "lot1-XYZ"));
 
-// import { Produit, produits, prixTotalEnsembleProduits } from "./ModelProduit01";
-// import { prixTotalEnsembleProduitsPourLots } from "./ModelProduit02";
+// Etape 02
+// import { Produit, produits } from "./src/01/ModelProduit";
+// import { prixTotalEnsembleProduitsPourLots } from "./src/02/ModelProduit";
 // logBlue("La valeur totale est : " + prixTotalEnsembleProduitsPourLots(produits, ["lot1-XYZ"]));
 
-// import { Produit, produits, prixTotalEnsembleProduits } from "./ModelProduit01";
-// import { prixTotalEnsembleProduitsPourLotsAvecDecote } from "./ModelProduit03";
+// Etape 03
+// import { Produit, produits } from "./src/01/ModelProduit";
+// import { prixTotalEnsembleProduitsPourLotsAvecDecote } from "./src/03/ModelProduit";
 // logBlue("La valeur totale est : " + prixTotalEnsembleProduitsPourLotsAvecDecote(produits, ["lot1-XYZ"]));
 
-// import { Produit, produits, prixTotalEnsembleProduits } from "./ModelProduit01";
-// import { prixTotalEnsembleProduitsPourLotsAvecDecoteAsync } from "./ModelProduitAsync00";
-// logBlue("La valeur totale est : " + prixTotalEnsembleProduitsPourLotsAvecDecoteAsync(produits, ["lot1-XYZ"]));
+// Etape 04
+// import { Produit, produits } from "./src/01/ModelProduit";
+// import { prixTotalEnsembleProduitsPourLotsAvecDecoteAsyncBuggy } from "./src/04/ModelProduit";
+// logBlue("La valeur totale est : " + prixTotalEnsembleProduitsPourLotsAvecDecoteAsyncBuggy(produits, ["lot1-XYZ"]));
 
-import { Produit, produits, prixTotalEnsembleProduits } from "./ModelProduit01";
-import { prixTotalEnsembleProduitsPourLotsAvecDecoteAsync } from "./ModelProduitAsyncGood";
-import { ProduitsService } from "./services/ProduitsService"
+// Identity tests here
+// import {Identity} from "./src/monads/Identity";
+// console.info(
+//   Identity.of(42).map(addOne).map(addOne)
+// );
 
-let service = new ProduitsService();
+// Etape functional
+// import {prixTotalEnsembleProduitsPourLotsAvecDecoteAsync} from "./src/functional/ModelProduit";
+// import {ProduitsService} from "./src/services/ProduitsService";
+//
+// let service = new ProduitsService();
+// const computation = prixTotalEnsembleProduitsPourLotsAvecDecoteAsync(
+//   service.getProduits(), ["lot1-XYZ"]
+// )
+//
+// computation.subscribe(result => {
+//   logBlue("La valeur totale est : " + result);
+// });
 
-logBlue("La valeur totale est : " + prixTotalEnsembleProduitsPourLotsAvecDecoteAsync(service.getProduits(), ["lot1-XYZ"]));

@@ -1,3 +1,3 @@
-# typescript-sezz1m
+# typescript-qfsv5t
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/typescript-sezz1m)
+[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/typescript-qfsv5t)
