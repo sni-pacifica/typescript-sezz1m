@@ -9,6 +9,7 @@ const logBlue = Log.logWithColor("#5588ff");
   Appellez le code à executer ci-dessous !
 */
 
+
 // Etape 00
 import {produits, total} from "./src/00/ModelProduit";
 
